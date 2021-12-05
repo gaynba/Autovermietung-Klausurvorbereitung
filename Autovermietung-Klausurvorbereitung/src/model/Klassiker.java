@@ -5,8 +5,8 @@ public class Klassiker extends Fahrzeug{
 
     String _baujahr;
 
-    public Klassiker(String marke, String modell, String baujahr){
-        super(marke, modell);
+    public Klassiker(String marke, String modell, String baujahr, double leasingangebot){
+        super(marke, modell, leasingangebot);
         setBaujahr(baujahr);
     }
 
@@ -19,6 +19,17 @@ public class Klassiker extends Fahrzeug{
         }
         else{
             return "Wir haben nur Klassiker aus 1967, 1968 und 1970";
+        }
+    }
+    
+    // Wenn das Leasingangebot unter 22.000€ liegt dann wird kein Klassiker geleased
+    // Wenn es mehr als 22.000€ sind dann wird ein Klassiker geleased
+    public String leasingangebot(){
+        if(getLeasingpreisangebot() <= 22.000){
+            return "Viel Spaß mit ihrem Klassiker Leasingfahrzeug";
+        }
+        else{
+            return "Der Leasingpreis für einen Klassiker liegt bei min. 22.000€.";
         }
     }
 

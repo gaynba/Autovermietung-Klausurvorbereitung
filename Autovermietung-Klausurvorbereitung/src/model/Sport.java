@@ -7,13 +7,13 @@ public class Sport extends Fahrzeug {
     double _preis;
 
     // Constructor für Sportwagen 
-    public Sport(String marke, String modell, int ps, double preis){
-        super(marke, modell);
+    public Sport(String marke, String modell, int ps, double leasingpreisangebot, double preis){
+        super(marke, modell, leasingpreisangebot);
         setPs(ps);
         setPreis(preis);
     }
 
-
+    // Es werden nur Sportwagen mit min. 320PS vermietet, da die Autovermietung keine Sportwagen mit weniger als 320PS haben.
     public String vermieten(){
         if(getPs() <= 320){
             return "Sportwagen unter 320PS haben wir nicht!";
@@ -23,7 +23,19 @@ public class Sport extends Fahrzeug {
         }
 
     }
+    
+    // Leasingangebot muss über 12.000€ liegen, damit ein Sportwagen geleased werden kann
+    public String leasingangebot(){
+        if(getLeasingpreisangebot() <= 12.000){
+            return "Das min. Leasinangebot liegt bei 12.500.";
+        }
+        else{
+            return "Hier sind die Schlüssel zu ihrem neuen Leasingfahrzeug.";
+        }
+    }
 
+    // Methode für das mögliche Verkaufen eines Sportwagens
+    // Die Autovermietung verkauft keine sportwagen
     public String verkaufen(){
         return "wir verkaufen keine Sportwagen";        
     }

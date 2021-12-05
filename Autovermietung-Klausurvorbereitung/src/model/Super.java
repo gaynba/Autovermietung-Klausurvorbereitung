@@ -5,13 +5,13 @@ public class Super extends Fahrzeug{
     String _maxgeschwindigkeit;
     double _vonNullaufHundert;
 
-    public Super(String marke, String modell, String maxgeschwindigkeit, double vonNullaufHundert){
-        super(marke, modell);
+    public Super(String marke, String modell, String maxgeschwindigkeit, double vonNullaufHundert, double leasingangebot){
+        super(marke, modell, leasingangebot);
         setMaxgeschwindigkeit(maxgeschwindigkeit);
         setVonNullaufHundert(vonNullaufHundert);
     }
 
-
+    // Wenn die Zeit, in der das Supercar von null auf hundert geht über 3Sekunden ist und die max.geschw. unter 340Km/h liegt kein Supercar vermietet, da es keine Supercars mit diesen Eigenschaften bei dieser Autovermietung gibt
     public String vermieten(){
         if(getVonNullaufHundert() >= 3 && getMaxgeschwindigkeit() != "340 Km/h"){
             return "Unsere Supercars haben gehen alle von 0 auf 100 in unter 3 Sekunden und unter 340 Km/h";
@@ -21,7 +21,12 @@ public class Super extends Fahrzeug{
         }
 
     }
-
+    // Es werden keine Supercars geleased
+    public String leasingangebot(){
+        return "Wir Leasen keine Supercars.";
+    }
+    // Methode für die Frage, ob die Autovermietung auch Supercars verkauft
+    // es werden keine Supercars verkauft
     public String verkaufen(){
         return "Wir verkaufen keine Supercars!";
     }
